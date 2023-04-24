@@ -15,7 +15,9 @@ jobs:
         name: Release version
         id: release_version
         run: |
-          app_version="3.00-" + `date +%Y-%m-%d`
+          ls_date=`date +%Y-%m-%d`
+          app_version="3.00"
+          app_version_new="${app_version}-${ls_date}"
           echo "app_version=$app_version" >> $GITHUB_ENV
 
       -
