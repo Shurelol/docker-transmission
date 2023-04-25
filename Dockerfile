@@ -36,7 +36,8 @@ RUN \
     && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .. \
     && make && make install \
     && git clone https://github.com/ronggang/transmission-web-control.git /tmp/transmission-web-control \
-    && cp -r /tmp/transmission-web-control/src /usr/local/share/transmission/web/ \
+    && mv /usr/local/share/transmission/public_html/index.html /usr/local/share/transmission/public_html/index.original.html \
+    && cp -r /tmp/transmission-web-control/src/* /usr/local/share/transmission/public_html \
     && \
     ln -s /usr/local/bin/transmission-daemon /usr/bin/transmission-daemon && \
     ln -s /usr/local/bin/transmission-remote /usr/bin/transmission-remote && \
